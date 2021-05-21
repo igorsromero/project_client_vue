@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ clientte: !isPremium, 'cliente-premium': isPremium }">
+  <div :class="{ 'cliente': !isPremium, 'cliente-premium': isPremium }">
     <h4>Nome: {{ cliente.nome }}</h4>
     <p>{{ cliente.descricao }}</p>
     <p>Numero: {{ cliente.numero }}</p>
@@ -8,7 +8,7 @@
     <p v-else>O usuário escondeu a idade!</p>
     <button @click="mudarCor($event)">Mudar cor!</button>
     <button @click="emitirEventoDelete">Deletar</button>
-    <h4>IDEspecial: {{idEspecial}}</h4>
+    <h4>IDEspecial: {{ idEspecial }}</h4>
   </div>
 </template>
 
@@ -37,20 +37,20 @@ export default {
         component: this,
       });
     },
-    testar: function(){
-        alert("Isso é um alert!");
-    }
+    testar: function () {
+      alert("Isso é um alert!");
+    },
   },
-  filters:{
-      processarEmail: function(value){
-          return value.toUpperCase();
-      }
+  filters: {
+    processarEmail: function (value) {
+      return value.toUpperCase();
+    },
   },
-  computed:{
-      idEspecial: function(){
-          return (this.cliente.email + this.cliente.nome)
-      }
-  }
+  computed: {
+    idEspecial: function () {
+      return this.cliente.email + this.cliente.nome;
+    },
+  },
 };
 </script>
 
